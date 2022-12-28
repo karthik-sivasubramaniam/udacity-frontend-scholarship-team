@@ -10,8 +10,9 @@ Just clone the project, select one of the issues identified from the "Issues" pa
 All conversations related to the projects will happen on the program's Slack channel.
 
 If you're new to Git/GitHub, here are some helpful links to get you started.
-[Using SSH with GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
-[An Intro to Git and GitHub for beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
+
+* [Using SSH with GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+* [An Intro to Git and GitHub for beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
 
 ## Some basic rules to make it easy for everyone
 * No frameworks. Just plain old HTML, CSS & JS working together in a project directory.
