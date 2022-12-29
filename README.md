@@ -14,6 +14,8 @@ If you're new to Git/GitHub, here are some helpful links to get you started.
 * [Using SSH with GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 * [An Intro to Git and GitHub for beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
 
+If you're stuck with anything, feel free to reach out to any of our fellow students, including me. I'm sure you'll get quick help.
+
 ## Some basic rules to make it easy for everyone
 * No frameworks. Just plain old HTML, CSS & JS working together in a project directory.
 * HTML file should always be in the project's root directory, with CSS stylesheets and JS script files in their own sub-directories.
