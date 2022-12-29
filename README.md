@@ -11,6 +11,7 @@ All conversations related to the projects will happen on the program's Slack cha
 
 If you're new to Git/GitHub, here are some helpful links to get you started.
 [Using SSH with GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
 [An Intro to Git and GitHub for beginners](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners)
 
 ## Some basic rules to make it easy for everyone
