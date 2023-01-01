@@ -5,40 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Space+Mono:700&display=swap"
+  />
   
   <title>Frontend Mentor | Tip calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Space, Mono, sans-serif;
+    }
+    .attribution { 
+      font-size: 11px; text-align: center;
+     }
+    .attribution a { 
+      color: hsl(228, 45%, 44%); 
+    }
   </style>
 </head>
 <body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <section>
+    <span>SPLI <br/> TTER</span>
+    <main>
+      <div class="data-enter">
+        <span>Bill</span>
+        <input type="text">
+        <span>select Tip %</span>
+        <div class="tip">
+          <span>5%</span>
+          <span>10%</span>
+          <span>15%</span>
+          <span>25%</span>
+          <span>50%</span>
+          <span>Custom</span>
+        </div>
+        <span>Number of people</span>
+        <input type="text">
+      </div>
+      <div class="result">
+        <div class="amount">
+          <div><span>Tip Amount</span><span>/person</span></div>
+          <div><span>$</span><span>4.27</span></div>
+          <div><span>Total</span><span>/person</span></div>
+          <div><span>$</span><span>32.79</span></div>
+        </div>
+        <BUtton>RESET</BUtton>
+      </div>
+    </main>
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Muhindo Dieumerci</a>.
+    </footer>
+  </section>
 </body>
 </html>
