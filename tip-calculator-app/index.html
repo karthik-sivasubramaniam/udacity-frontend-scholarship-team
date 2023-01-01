@@ -2,23 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Space+Mono:700&display=swap"
-  />
-  
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Tip calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Space, Mono, sans-serif;
+      font-family: 'Space Mono', monospace;
     }
     :root {
       --Primary: hsl(172, 67%, 45%);
@@ -28,9 +23,78 @@
       --Light-grayish-cyan: hsl(185, 41%, 84%);
       --Very-light-grayish-cyan: hsl(189, 41%, 97%);
       --White : hsl(0, 0%, 100%);
-}
+    }
+    body{
+      background-color: var(--Light-grayish-cyan);
+    }
+    section{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    main{
+      background-color: var(--White);
+      border-radius: 10px;
+      display: flex;
+      padding: 20px;
+    }
+    .data-enter{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 10px;
+    }
+    #title{
+      margin-top: 80px;
+      margin-bottom: 50px;
+      color: var(--Very-dark-cyan);
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+    .enter-bill{
+      display: flex;
+      flex-direction: column;
+      gap:2px;
+    }
+    .label{
+      color: var(--Dark-grayish-cyan);
+      font-weight: 600;
+    }
+    .input{
+      background-color: var(--Very-light-grayish-cyan);
+      padding: 5px;
+      border: 1px solid var(--Very-light-grayish-cyan);
+      border-radius: 5px;
+      margin-top: 2px;
+    }
+    .select-Tip{
+      display: flex;
+      flex-direction: column;
+      gap : 10px
+    }
+    .enter-people-number{
+      display: flex;
+      flex-direction: column;
+    }
+    .tip{
+      display: grid;
+      grid-template-columns: 80px 80px 80px;
+      gap: 10px;
+    }
+    .tip span{
+      padding: 5px;
+      background-color: var(--Very-dark-cyan);
+      color: var(--White);
+      font-weight: bold;
+      width: 80px;
+      border-radius: 5px;
+      text-align: center;
+    }
     .attribution { 
       font-size: 11px; text-align: center;
+      position: absolute;
+      bottom: 0;
      }
     .attribution a { 
       color: hsl(228, 45%, 44%); 
@@ -39,22 +103,28 @@
 </head>
 <body>
   <section>
-    <span>SPLI <br/> TTER</span>
+    <img src="./images//logo.svg" alt="logo" id="title">
     <main>
       <div class="data-enter">
-        <span>Bill</span>
-        <input type="text">
-        <span>select Tip %</span>
-        <div class="tip">
-          <span>5%</span>
-          <span>10%</span>
-          <span>15%</span>
-          <span>25%</span>
-          <span>50%</span>
-          <span>Custom</span>
+        <div class="enter-bill">
+          <span class="label">Bill</span>
+          <input class="input bill" type="text" placeholder="$">
         </div>
-        <span>Number of people</span>
-        <input type="text">
+        <div class="select-Tip">
+          <span class="label">select Tip %</span>
+          <div class="tip">
+            <span>5%</span>
+            <span>10%</span>
+            <span>15%</span>
+            <span>25%</span>
+            <span>50%</span>
+            <span>Custom</span>
+          </div>
+        </div>
+        <div class="enter-people-number">
+          <span class="label">Number of people</span>
+          <input class="input people" type="text">
+        </div>
       </div>
       <div class="result">
         <div class="amount">
