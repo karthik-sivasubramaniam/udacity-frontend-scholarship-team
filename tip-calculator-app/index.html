@@ -13,7 +13,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Space Mono', monospace;
+      font-family: 'Space Mono', monospace, sans-serif;
     }
     :root {
       --Primary: hsl(172, 67%, 45%);
@@ -67,6 +67,18 @@
       border: 1px solid var(--Very-light-grayish-cyan);
       border-radius: 5px;
       margin-top: 2px;
+      outline: none;
+      direction: rtl;
+      color: var(--Very-dark-cyan);
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding-left: 5px;
+    }
+    .bill{
+      background: url('./images/icon-dollar.svg') no-repeat scroll 7px;
+    }
+    .people{
+      background: url('./images/icon-person.svg') no-repeat scroll 7px;
     }
     .select-Tip{
       display: flex;
@@ -81,6 +93,11 @@
       display: grid;
       grid-template-columns: 80px 80px 80px;
       gap: 10px;
+      cursor: pointer;
+    }
+    #custom{
+      background-color: var(--Very-light-grayish-cyan);
+      color: var(--Light-grayish-cyan);
     }
     .tip span{
       padding: 5px;
@@ -103,37 +120,37 @@
 </head>
 <body>
   <section>
-    <img src="./images//logo.svg" alt="logo" id="title">
+    <img src="./images/logo.svg" alt="logo" id="title">
     <main>
       <div class="data-enter">
-        <div class="enter-bill">
-          <span class="label">Bill</span>
-          <input class="input bill" type="text" placeholder="$">
-        </div>
+        <form class="enter-bill">
+          <label class="label">Bill</label>
+          <input class="input bill" type="text" placeholder="">
+        </form>
         <div class="select-Tip">
           <span class="label">select Tip %</span>
           <div class="tip">
-            <span>5%</span>
-            <span>10%</span>
-            <span>15%</span>
-            <span>25%</span>
-            <span>50%</span>
-            <span>Custom</span>
+            <span id="five-pourcent">5%</span>
+            <span id="ten-pourcent">10%</span>
+            <span id="fifteen-pourcent">15%</span>
+            <span id="quarter-pourcent">25%</span>
+            <span id="half-pourcent">50%</span>
+            <span id="custom">Custom</span>
           </div>
         </div>
-        <div class="enter-people-number">
-          <span class="label">Number of people</span>
+        <form class="enter-people-number">
+          <label class="label">Number of people</label>
           <input class="input people" type="text">
-        </div>
+        </form>
       </div>
       <div class="result">
         <div class="amount">
           <div><span>Tip Amount</span><span>/person</span></div>
-          <div><span>$</span><span>4.27</span></div>
+          <div><span>$</span><span>0.00</span></div>
           <div><span>Total</span><span>/person</span></div>
-          <div><span>$</span><span>32.79</span></div>
+          <div><span>$</span><span>0.00</span></div>
         </div>
-        <BUtton>RESET</BUtton>
+        <Button>RESET</Button>
       </div>
     </main>
     <footer class="attribution">
