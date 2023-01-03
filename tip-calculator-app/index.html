@@ -23,31 +23,31 @@
       --Light-grayish-cyan: hsl(185, 41%, 84%);
       --Very-light-grayish-cyan: hsl(189, 41%, 97%);
       --White : hsl(0, 0%, 100%);
+      --Default-btn-color: rgba(13,104,109,255)
     }
     body{
       background-color: var(--Light-grayish-cyan);
     }
-    section{
+    main{
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
     }
-    main{
+    section{
       background-color: var(--White);
       border-radius: 10px;
       display: flex;
-      padding: 20px;
     }
     .data-enter{
       display: flex;
       flex-direction: column;
       gap: 20px;
-      padding: 10px;
+      margin: 30px 10px 30px 30px;
     }
     #title{
-      margin-top: 80px;
-      margin-bottom: 50px;
+      margin-top: 60px;
+      margin-bottom: 40px;
       color: var(--Very-dark-cyan);
       letter-spacing: 4px;
       font-weight: bold;
@@ -108,6 +108,67 @@
       border-radius: 5px;
       text-align: center;
     }
+    .tip span:hover{
+      background-color: var(--Primary);
+    }
+    .result{
+      display: flex;
+      flex-direction: column;
+      background-color: var(--Very-dark-cyan);
+      margin: 20px;
+      border-radius: 10px;
+      padding: 30px;
+      gap: 100px;
+    }
+    .amount{
+      display: flex;
+      flex-direction: column;
+    }
+    .title-result{
+      font-weight: bold;
+      color: var(--White)
+    }
+    .person{
+      color: var(--Light-grayish-cyan);
+    }
+    .result-Amount-Total{
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+    }
+    .result-content{
+      color: var(--Primary);
+    }
+    .results{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .dollar-icon{
+      color: var(--Primary);
+    }
+    #amount-Tip{
+      margin-left: 5px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    #amount-Person{
+      margin-left: 5px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .btn-reset{
+      background-color: var(--Default-btn-color);
+      border: 1px solid var(--Default-btn-color);
+      border-radius: 2px;
+      color: var(--Very-dark-cyan);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .btn-reset:hover{
+      background-color: var(--Primary);
+    }
     .attribution { 
       font-size: 11px; text-align: center;
       position: absolute;
@@ -116,13 +177,16 @@
     .attribution a { 
       color: hsl(228, 45%, 44%); 
     }
+    img{
+      color:var(--Dark-grayish-cyan)
+    }
   </style>
 </head>
 <body>
-  <section>
+  <main>
     <img src="./images/logo.svg" alt="logo" id="title">
-    <main>
-      <div class="data-enter">
+    <section>
+      <article class="data-enter">
         <form class="enter-bill">
           <label class="label">Bill</label>
           <input class="input bill" type="text" placeholder="">
@@ -142,21 +206,33 @@
           <label class="label">Number of people</label>
           <input class="input people" type="text">
         </form>
-      </div>
-      <div class="result">
-        <div class="amount">
-          <div><span>Tip Amount</span><span>/person</span></div>
-          <div><span>$</span><span>0.00</span></div>
-          <div><span>Total</span><span>/person</span></div>
-          <div><span>$</span><span>0.00</span></div>
+      </article>
+      <article class="result">
+        <div class="results">
+          <div class="result-Amount-Total">
+          <div>
+            <span class="title-result">Tip Amount</span><br><span class="person">/person</span>
+          </div>
+            <div class="result-content">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="11" height="17"><path fill="hsl(172, 67%, 45%)" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg></span><span id="amount-Tip">0.00</span>
+            </div>
+          </div>
+          <div class="result-Amount-Total">
+            <div>
+              <span class="title-result">Total</span><br><span class="person">/person</span>
+            </div>
+          <div class="result-content">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="11" height="17"><path fill="hsl(172, 67%, 45%)" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg></span><span id="amount-Person">0.00</span>
+            </div>
+          </div>
         </div>
-        <Button>RESET</Button>
-      </div>
-    </main>
+        <Button class="btn-reset">RESET</Button>
+      </article>
+    </section>
     <footer class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="#">Muhindo Dieumerci</a>.
     </footer>
-  </section>
+  </main>
 </body>
 </html>
