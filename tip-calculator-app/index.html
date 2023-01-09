@@ -1,36 +1,312 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Mono', monospace, sans-serif;
+    }
+    :root {
+      --Primary: hsl(172, 67%, 45%);
+      --Very-dark-cyan: hsl(183, 100%, 15%);
+      --Dark-grayish-cyan: hsl(186, 14%, 43%);
+      --Grayish-cyan:hsl(184, 14%, 56%);
+      --Light-grayish-cyan: hsl(185, 41%, 84%);
+      --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+      --White : hsl(0, 0%, 100%);
+      --Default-btn-color: rgba(13,104,109,255)
+    }
+    body{
+      background-color: var(--Light-grayish-cyan);
+    }
+    main{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    section{
+      background-color: var(--White);
+      border-radius: 10px;
+      display: flex;
+    }
+    .data-enter{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 10px 30px 30px;
+    }
+    #title{
+      margin-top: 60px;
+      margin-bottom: 40px;
+      color: var(--Very-dark-cyan);
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+    .enter-bill{
+      display: flex;
+      flex-direction: column;
+      gap:2px;
+    }
+    .label{
+      color: var(--Dark-grayish-cyan);
+      font-weight: 600;
+    }
+    .input{
+      background-color: var(--Very-light-grayish-cyan);
+      padding: 5px;
+      border: 1px solid var(--Very-light-grayish-cyan);
+      border-radius: 5px;
+      margin-top: 2px;
+      outline: none;
+      direction: rtl;
+      color: var(--Very-dark-cyan);
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding-left: 5px;
+      width: 260px;
+    }
+    .bill{
+      background: url('./images/icon-dollar.svg') no-repeat scroll 7px;
+    }
+    .people{
+      background: url('./images/icon-person.svg') no-repeat scroll 7px;
+    }
+    .select-Tip{
+      display: flex;
+      flex-direction: column;
+      gap : 10px
+    }
+    .enter-people-number{
+      display: flex;
+      flex-direction: column;
+    }
+    .tip{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 80px);
+      gap: 10px;
+      cursor: pointer;
+    }
+    #custom{
+      background-color: var(--Very-light-grayish-cyan);
+      color: var(--Light-grayish-cyan);
+    }
+    .tip span{
+      padding: 5px;
+      background-color: var(--Very-dark-cyan);
+      color: var(--White);
+      font-weight: bold;
+      width: 80px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .tip span:hover{
+      background-color: var(--Primary);
+    }
+    .result{
+      display: flex;
+      flex-direction: column;
+      background-color: var(--Very-dark-cyan);
+      margin: 20px;
+      border-radius: 10px;
+      padding: 30px;
+      gap: 100px;
+    }
+    .amount{
+      display: flex;
+      flex-direction: column;
+    }
+    .title-result{
+      font-weight: bold;
+      color: var(--White)
+    }
+    .person{
+      color: var(--Light-grayish-cyan);
+    }
+    .result-Amount-Total{
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+    }
+    .result-content{
+      color: var(--Primary);
+    }
+    .results{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .dollar-icon{
+      color: var(--Primary);
+    }
+    #amount-Tip{
+      margin-left: 5px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    #amount-Person{
+      margin-left: 5px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .btn-reset{
+      background-color: var(--Default-btn-color);
+      border: 1px solid var(--Default-btn-color);
+      border-radius: 2px;
+      color: var(--Very-dark-cyan);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .btn-reset:hover{
+      background-color: var(--Primary);
+    }
+    .attribution { 
+      font-size: 11px; text-align: center;
+      margin-top: 50px;
+     }
+    .attribution a { 
+      color: hsl(228, 45%, 44%); 
+    }
+    img{
+      color:var(--Dark-grayish-cyan)
+    }
+    @media only screen and (max-width: 700px)  {
+      .tip{
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+        cursor: pointer;
+      }
+      .result-Amount-Total{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .input{
+        width: 250px;
+      }
+      .data-enter{
+        width: 250px;
+      }
+    }
+    @media only screen and (max-width: 575px)  {
+      section{
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+      }
+      .tip{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 10px;
+      cursor: pointer;
+      }
+    }
+    @media screen and (max-width: 400px)  {
+      section{
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+      }
+      .tip{
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      }
+      #title{
+      margin-top: 20px;
+      margin-bottom: 10px;
+      }
+     results{
+      gap: 20px;
+      }
+      .result{
+      margin: 20px;
+      border-radius: 10px;
+      padding: 10px;
+      gap: 30px;
+      width: 230px;
+      }
+     .input{
+      width: 210px;
+      }
+     .attribution { 
+      display: none;
+       }
+     .title-result{
+      font-size: 0.8rem;
+      }
+     .person{
+      font-size: 0.8rem;
+     }
+      .amount-Person{
+       font-size: 0.8rem;
+      }
+      .amount-Tip{
+        font-size: 0.8rem;
+      }
+    }
+
+  </style>
 </head>
 <body>
-    <p>
-        Bill
-    </p>
-    <div>
-        <img src="images/icon-dollar.svg" height="12px"/> 
-        <span style="margin-left: 100px;">142.55</span>
-    </div>
-    <h5>
-        Select Tip
-    </h5>
-<form>
-<input type="button" value="5%" size="5" /> 
-<input type="button" value="10%" size="5" />
-<input type="button" value="15%" size="5" />
-<br><br>
- <input type="button" value="25%" size="5" />
-<input type="button" value="50%" size="5" />
-<input type="button" value="custom" size="10" />
-<h6>
-    Number of People
-</h6>
- <div>
-    <img src="images/icon-person.svg" />
-    <span style="margin-left: 100px;">5</span>
- </div>
-</form>
+  <main>
+    <img src="./images/logo.svg" alt="logo" id="title">
+    <section>
+      <article class="data-enter">
+        <form class="enter-bill">
+          <label class="label">Bill</label>
+          <input class="input bill" type="text" placeholder="">
+        </form>
+        <div class="select-Tip">
+          <span class="label">select Tip %</span>
+          <div class="tip">
+            <span id="five-pourcent">5%</span>
+            <span id="ten-pourcent">10%</span>
+            <span id="fifteen-pourcent">15%</span>
+            <span id="quarter-pourcent">25%</span>
+            <span id="half-pourcent">50%</span>
+            <span id="custom">Custom</span>
+            <span id="quarter-pourcent">25%</span>
+          </div>
+        </div>
+        <form class="enter-people-number">
+          <label class="label">Number of people</label>
+          <input class="input people" type="text">
+        </form>
+      </article>
+      <article class="result">
+        <div class="results">
+          <div class="result-Amount-Total">
+          <div>
+            <span class="title-result">Tip Amount</span><br><span class="person">/person</span>
+          </div>
+            <div class="result-content">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="20"><path fill="hsl(172, 67%, 45%)" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg></span><span id="amount-Tip">0.00</span>
+            </div>
+          </div>
+          <div class="result-Amount-Total">
+            <div>
+              <span class="title-result">Total</span><br><span class="person">/person</span>
+            </div>
+          <div class="result-content">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="20"><path fill="hsl(172, 67%, 45%)" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg></span><span id="amount-Person">0.00</span>
+            </div>
+          </div>
+        </div>
+        <Button class="btn-reset">RESET</Button>
+      </article>
+    </section>
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Muhindo Dieumerci</a>
+    </footer>
+  </main>
 </body>
 </html>
