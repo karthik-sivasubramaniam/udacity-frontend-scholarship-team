@@ -4,33 +4,122 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Calculator</title>
+    <style>
+        .tip_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            justify-content: center;
+            grid-gap: 30px;
+        }
+        /* to remove arrow for number input in bill */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .bill_amount_container {
+            position: relative;
+            padding: 0px 5px;
+        }
+        #bill_amount_input {
+            height: 30px;
+            margin: 0px;
+            padding-left: 30px;
+        }
+        #bill_amount_image {
+            position: absolute;
+            height: 13px;
+            left: 12px;
+            top: 67px;
+        }
+    </style>
 </head>
+
 <body>
-    <p>
-        Bill
-    </p>
-    <div>
-        <img src="images/icon-dollar.svg" height="12px"/> 
-        <span style="margin-left: 100px;">142.55</span>
+    <div class="container">
+        <div id="bill">
+            <p>
+                Bill
+            </p>
+            <form>
+                <div id="bill_amount_container">
+                    <img src="images/icon-dollar.svg" id="bill_amount_image"/>
+                    <input type="number" id="bill_amount_input">
+                </div>
+                <h5>
+                    Select Tip
+                </h5>
+                <input type="button" value="5%" size="5" onclick="tipCalculator(5)"/>
+                <input type="button" value="10%" size="5" onclick="tipCalculator(10)"/>
+                <input type="button" value="15%" size="5" onclick="tipCalculator(15)"/>
+                <br><br>
+                <input type="button" value="25%" size="5" onclick="tipCalculator(25)"/>
+                <input type="button" value="50%" size="5" onclick="tipCalculator(50)"/>
+                <input type="button" value="custom" size="10"/>
+                <h6>
+                    Number of People
+                </h6>
+                <div>
+                    <img src="images/icon-person.svg" />
+                    <span style="margin-left: 100px;">5</span>
+                </div>
+            </form>
+        </div>
+        <div id="tip">
+            <div id="tip_amount" class="tip_container">
+                <div>
+                    <h3>Tip Amount</h3>
+                    <p>/ person</p>
+                </div>
+                <div>
+                    <h2 id="tip_amount_value">$0.00</h2>
+                </div>
+            </div>
+            <div id="total" class="tip_container">
+                <div>
+                    <h3>Total</h3>
+                    <p>/ person</p>
+                </div>
+                <div>
+                    <h2 id="total_value">$0.00</h2>
+                </div>
+            </div>
+            <form>
+                <input type="button" value="RESET" onClick="resetForm()" />
+            </form>
+        </div>
     </div>
-    <h5>
-        Select Tip
-    </h5>
-<form>
-<input type="button" value="5%" size="5" /> 
-<input type="button" value="10%" size="5" />
-<input type="button" value="15%" size="5" />
-<br><br>
- <input type="button" value="25%" size="5" />
-<input type="button" value="50%" size="5" />
-<input type="button" value="custom" size="10" />
-<h6>
-    Number of People
-</h6>
- <div>
-    <img src="images/icon-person.svg" />
-    <span style="margin-left: 100px;">5</span>
- </div>
-</form>
+
+    <script>
+        //calculates tip and set appropriate fields
+        function tipCalculator(percent) {
+            var bill_string = document.getElementById("bill_amount_input").value;
+            var bill_amount = parseFloat(bill_string);
+            var tip_amount = percent/100 * bill_amount;
+            var total = tip_amount+bill_amount;
+
+            console.log(bill_amount);
+            console.log(tip_amount);
+            console.log(total);
+
+            //set the values in display
+        
+            document.getElementById("tip_amount_value").innerHTML = "$ "+(Math.round(tip_amount*100)/100).toString();
+            document.getElementById("total_value").innerHTML = "$ "+(Math.round(total*100)/100).toString();
+        }
+        //resets the form
+        function resetForm() {
+            document.getElementById("tip_amount_value").innerHTML = "$0.00";
+            document.getElementById("total_value").innerHTML = "$0.00";
+            document.getElementById("bill_amount_input").value = "";
+        }
+    </script>
+
 </body>
+
 </html>
